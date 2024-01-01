@@ -60,6 +60,8 @@ test.only("should be able to interactive transaction", async function () {
                 name: "Mahfud MD",
                 phone: "0812345633"
             }
+        }, {
+            timeout: 5
         });
 
         return [dataMuhaimin, dataGibran, dataMahfud];
