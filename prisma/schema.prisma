@@ -20,16 +20,31 @@ model Customer{
   name String
   email String @unique
   phone String @unique
+  wallet Wallet?
   
   @@map("customers")
 }
 
-model Product{
+model Wallet{
   id String @id
-  name String
-  price Int
-  stock Int
-  category String
+  balance Int
+  customer Customer @relation(fields:[customer_id], references:[id])
+  customer_id String @unique
+}
+
+model Product{
+  id String @id @db.VarChar(100)
+  name String @db.VarChar(100)
+  price Int @db.Int
+  stock Int @db.SmallInt
+  category String @db.VarChar(100)
 
   @@map("products")
+}
+
+model Category{
+  id Int @id @default(autoincrement())
+  name String
+
+  @@map("categories")
 }
