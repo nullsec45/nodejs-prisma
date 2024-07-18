@@ -8,7 +8,6 @@ describe("Prisma Client", () => {
       },
     });
 
-    console.info(category);
     expect(category).toHaveProperty("id");
   });
 });
